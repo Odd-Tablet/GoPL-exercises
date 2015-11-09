@@ -1,4 +1,5 @@
 Exercises 4.12
 
-Command line tool to search XKCD strips and return URL/transcript of matches.
+Command line tool to search XKCD strips and return URL/transcript of matches.  
 
+Usage: ./xkcd <search term>
