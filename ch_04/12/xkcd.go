@@ -31,18 +31,16 @@ func check(e error) {
 	}
 }
 func search(str []string, strips []strip) {
-	if len(str) >= 1 {
-		for j := 0; j < len(str); j++ {
-			fmt.Printf("Search term %s:\n", str[j])
-			for i := 0; i < len(strips); i++ {
-				x := strips[i]
-				matched, err := regexp.MatchString("(?i)"+str[j], x.Transcript)
-				check(err)
-				if matched {
-					fmt.Printf("Image: %s\n", x.Img)
-					fmt.Printf("URL: http://xkcd.com/%s/\n", strconv.Itoa(x.Num))
-					fmt.Printf("Transcript: %s\n", x.Transcript)
-				}
+	for j := 0; j < len(str); j++ {
+		fmt.Printf("Search term %s:\n", str[j])
+		for i := 0; i < len(strips); i++ {
+			x := strips[i]
+			matched, err := regexp.MatchString("(?i)"+str[j], x.Transcript)
+			check(err)
+			if matched {
+				fmt.Printf("Image: %s\n", x.Img)
+				fmt.Printf("URL: http://xkcd.com/%s/\n", strconv.Itoa(x.Num))
+				fmt.Printf("Transcript: %s\n", x.Transcript)
 			}
 		}
 	}
