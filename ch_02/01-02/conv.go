@@ -1,19 +1,22 @@
 package main
 
 import (
-	"./tempconv"
 	"fmt"
 	"os"
+	"playground/GoPL-exercises/ch_02/01-02/tempconv"
 	"strconv"
 )
 
 func convert(fl float64) {
-
+	f := tempconv.Fahrenheit(fl)
+	c := tempconv.Celsius(fl)
+	k := tempconv.Kelvin(fl)
+	fmt.Printf("%s = %s, %s = %s, %s = %s, %s = %s, %s = %s %s = %s\n", f, tempconv.FToC(f), c, tempconv.CToF(c), c, tempconv.CToK(c), k, tempconv.KToC(k), k, tempconv.KToF(k), f, tempconv.FToK(f))
 }
 
 func main() {
 	alen := len(os.Args)
-	if alen >= 1 {
+	if alen > 1 {
 		for _, arg := range os.Args[1:] {
 			f, err := strconv.ParseFloat(arg, 64)
 			if err != nil {
